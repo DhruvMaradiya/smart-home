@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "author": "Maverick",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 18.28, "left": 112.73, "attrs": {} },
+    { "type": "chip-soil_sensor", "id": "chip1", "top": 231.42, "left": 436.8, "attrs": {} },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": -8.45,
+      "left": 262.85,
+      "attrs": { "pins": "i2c" }
+    },
+    { "type": "wokwi-servo", "id": "servo1", "top": 391.6, "left": 96, "attrs": {} }
+  ],
+  "connections": [
+    [ "lcd1:SCL", "esp:D22", "#8f4814", [ "h0" ] ],
+    [ "lcd1:SDA", "esp:D23", "blue", [ "h0" ] ],
+    [ "lcd1:GND", "esp:GND.1", "black", [ "h-20.78", "v130.63" ] ],
+    [ "esp:3V3", "lcd1:VCC", "red", [ "v0.15", "h20.28", "v-145.52" ] ],
+    [ "chip1:GND", "esp:GND.1", "black", [ "h0" ] ],
+    [ "chip1:VCC", "esp:3V3", "red", [ "h-71.18", "v1.57" ] ],
+    [ "chip1:A0", "esp:D34", "green", [ "h-57.33", "v41.75", "h-136.72", "v-157.1" ] ],
+    [ "servo1:PWM", "esp:D12", "green", [ "h-67.2", "v-335.8" ] ],
+    [ "servo1:V+", "esp:3V3", "green", [ "h-48", "v-239.9", "h220.8", "v-38.4" ] ],
+    [ "servo1:GND", "esp:GND.2", "black", [ "h-19.2", "v-278.4" ] ]
+  ],
+  "dependencies": {}
+}

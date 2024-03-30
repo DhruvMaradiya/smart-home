@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "author": "Dhruv Maradiya",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 57.6, "left": 100.84, "attrs": {} },
+    {
+      "type": "wokwi-stepper-motor",
+      "id": "stepper1",
+      "top": -130.79,
+      "left": -124.37,
+      "attrs": { "size": "17", "arrow": "blue", "display": "none" }
+    },
+    {
+      "type": "wokwi-stepper-motor",
+      "id": "stepper2",
+      "top": -130.79,
+      "left": 298.03,
+      "attrs": { "size": "17", "arrow": "cyan", "display": "none" }
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "ultrasonic1",
+      "top": 318.3,
+      "left": 82.3,
+      "attrs": { "distance": "400" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": 165.6,
+      "left": -199.8,
+      "attrs": { "volume": "0.1" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "ultrasonic1:VCC", "esp:5V", "red", [ "v0", "h-163.2", "v-153.6" ] ],
+    [ "ultrasonic1:GND", "esp:GND.2", "black", [ "v0", "h171.6", "v-144" ] ],
+    [ "ultrasonic1:TRIG", "esp:0", "purple", [ "v19.2", "h124.4", "v-220.8" ] ],
+    [ "ultrasonic1:ECHO", "esp:2", "yellow", [ "v9.6", "h133.6", "v-201.6", "h0" ] ],
+    [ "stepper1:A-", "esp:12", "blue", [ "v0" ] ],
+    [ "stepper1:A+", "esp:14", "blue", [ "v0" ] ],
+    [ "stepper1:B+", "esp:27", "blue", [ "v0" ] ],
+    [ "stepper1:B-", "esp:26", "blue", [ "v0" ] ],
+    [ "esp:16", "stepper2:B-", "cyan", [ "h0" ] ],
+    [ "esp:17", "stepper2:B+", "cyan", [ "h0" ] ],
+    [ "stepper2:A+", "esp:18", "cyan", [ "v0" ] ],
+    [ "esp:19", "stepper2:A-", "cyan", [ "h0" ] ],
+    [ "bz1:1", "esp:GND.1", "black", [ "v38.4", "h115.2", "v-76.8" ] ],
+    [ "bz1:2", "esp:33", "green", [ "v28.8", "h134", "v-48", "h96", "v-76.8", "h9.6" ] ]
+  ],
+  "dependencies": {}
+}
